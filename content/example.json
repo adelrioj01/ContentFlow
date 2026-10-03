@@ -1,0 +1,39 @@
+{
+  "headline": "Tres errores al usar inteligencia artificial",
+  "narration": "Si utilizas inteligencia artificial, evita estos tres errores. Primero, pedir resultados sin aportar contexto. La IA no puede adivinar tu objetivo. Segundo, aceptar la primera respuesta. Pide alternativas y compara. Tercero, automatizar antes de validar el proceso. Primero comprueba que funciona y después escálalo.",
+  "handle": "@tu_canal",
+  "callToAction": "Guárdalo para después",
+  "voiceover": "audio/voice.mp3",
+  "scenes": [
+    {
+      "title": "¿USAS MAL LA IA?",
+      "body": "Estos tres errores están empeorando tus resultados.",
+      "durationSeconds": 5,
+      "accent": "#B7FF3C"
+    },
+    {
+      "title": "ERROR 1",
+      "body": "Pedir resultados sin explicar el contexto ni el objetivo.",
+      "durationSeconds": 7,
+      "accent": "#54E6FF"
+    },
+    {
+      "title": "ERROR 2",
+      "body": "Aceptar la primera respuesta sin pedir alternativas ni comparar.",
+      "durationSeconds": 7,
+      "accent": "#FFCC45"
+    },
+    {
+      "title": "ERROR 3",
+      "body": "Automatizar un proceso antes de comprobar que realmente funciona.",
+      "durationSeconds": 7,
+      "accent": "#FF5D8F"
+    },
+    {
+      "title": "HAZLO AL REVÉS",
+      "body": "Aporta contexto, compara y valida antes de automatizar.",
+      "durationSeconds": 4,
+      "accent": "#B7FF3C"
+    }
+  ]
+}

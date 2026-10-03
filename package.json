@@ -1,0 +1,28 @@
+{
+  "name": "codex-reels-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Generador local de Reels, Shorts y TikToks con Codex y Remotion",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts SocialVideo out/video.mp4 --props=content/example.json",
+    "render:video": "remotion render src/index.ts SocialVideo out/video.mp4",
+    "voice": "uv run --with edge-tts python scripts/generate_voice.py content/example.json public/audio/voice.mp3",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/media": "4.0.532",
+    "@remotion/transitions": "4.0.532",
+    "@remotion/zod-types": "4.0.532",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "4.0.532",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@remotion/cli": "4.0.532",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0"
+  }
+}
