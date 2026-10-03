@@ -63,13 +63,13 @@ const Background = ({accent, image}: Pick<Scene, 'accent' | 'image'>) => {
   );
 };
 
-const Caption = ({text, accent}: {text: string; accent: string}) => {
+const Caption = ({text, accent, sceneDuration}: {text: string; accent: string; sceneDuration: number}) => {
   const frame = useCurrentFrame();
-  const {durationInFrames, fps} = useVideoConfig();
+  const {fps} = useVideoConfig();
   const words = text.trim().split(/\s+/);
   const index = Math.min(
     words.length - 1,
-    Math.floor((frame / Math.max(1, durationInFrames)) * words.length),
+    Math.floor((frame / Math.max(1, sceneDuration)) * words.length),
   );
   const pageStart = Math.floor(index / 5) * 5;
   const page = words.slice(pageStart, pageStart + 5);
@@ -104,11 +104,11 @@ const Caption = ({text, accent}: {text: string; accent: string}) => {
   );
 };
 
-const SceneCard = ({scene, index, total}: {scene: Scene; index: number; total: number}) => {
+const SceneCard = ({scene, index, total, sceneDuration}: {scene: Scene; index: number; total: number; sceneDuration: number}) => {
   const frame = useCurrentFrame();
-  const {fps, durationInFrames} = useVideoConfig();
+  const {fps} = useVideoConfig();
   const enter = spring({frame, fps, config: {damping: 18, stiffness: 170}});
-  const exit = interpolate(frame, [durationInFrames - 0.35 * fps, durationInFrames], [1, 0], {
+  const exit = interpolate(frame, [sceneDuration - 0.35 * fps, sceneDuration], [1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
@@ -120,10 +120,15 @@ const SceneCard = ({scene, index, total}: {scene: Scene; index: number; total: n
   return (
     <AbsoluteFill>
       <Background accent={scene.accent} image={scene.image} />
+      <div style={{position: 'absolute', top: 0, left: 0, height: 10, width: `${((index + frame / sceneDuration) / total) * 100}%`, background: scene.accent}} />
       <div style={{position: 'absolute', top: 94, left: 76, right: 76, display: 'flex', justifyContent: 'space-between', fontFamily: FONT}}>
-        <div style={{fontSize: 28, fontWeight: 800, color: scene.accent}}>EN 30 SEGUNDOS</div>
+        <div style={{display: 'flex', alignItems: 'center', gap: 18}}>
+          <div style={{padding: '10px 18px', borderRadius: 12, background: scene.accent, color: '#080A0E', fontSize: 27, fontWeight: 950}}>AINSIDER</div>
+          <div style={{fontSize: 24, fontWeight: 800, color: '#ffffffb8'}}>IA PRÁCTICA</div>
+        </div>
         <div style={{fontSize: 27, color: '#ffffffaa'}}>{String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}</div>
       </div>
+      <div style={{position: 'absolute', right: 54, top: 185, fontFamily: FONT, fontSize: 330, fontWeight: 950, lineHeight: 1, color: `${scene.accent}18`}}>{index + 1}</div>
       <div style={{position: 'absolute', top: 350, left: 76, right: 76, ...contentStyle}}>
         <div style={{fontFamily: FONT, fontWeight: 950, fontSize: fitSize(scene.title), lineHeight: 0.94, letterSpacing: -4, color: '#fff'}}>
           {scene.title}
@@ -131,7 +136,7 @@ const SceneCard = ({scene, index, total}: {scene: Scene; index: number; total: n
         <div style={{width: 170, height: 12, marginTop: 46, marginBottom: 44, borderRadius: 20, background: scene.accent}} />
         <div style={{fontFamily: FONT, fontSize: 46, lineHeight: 1.28, fontWeight: 600, color: '#E9EDF5'}}>{scene.body}</div>
       </div>
-      <Caption text={`${scene.title} ${scene.body}`} accent={scene.accent} />
+      <Caption text={`${scene.title} ${scene.body}`} accent={scene.accent} sceneDuration={sceneDuration} />
     </AbsoluteFill>
   );
 };
@@ -148,12 +153,16 @@ export const SocialVideo = (props: VideoProps) => {
         cursor += duration;
         return (
           <Sequence key={`${index}-${scene.title}`} from={start} durationInFrames={duration} premountFor={fps}>
-            <SceneCard scene={scene} index={index} total={props.scenes.length} />
+            <SceneCard scene={scene} index={index} total={props.scenes.length} sceneDuration={duration} />
           </Sequence>
         );
       })}
-      {props.voiceover ? <Audio src={staticFile(props.voiceover)} /> : null}
-      {props.music ? <Audio src={staticFile(props.music)} loop volume={0.08} /> : null}
+      {props.voiceover ? (
+        <Audio src={staticFile(props.voiceover)} volume={props.voiceVolume} />
+      ) : null}
+      {props.music ? (
+        <Audio src={staticFile(props.music)} loop volume={props.musicVolume} />
+      ) : null}
       <div style={{position: 'absolute', left: 76, right: 76, bottom: 94, display: 'flex', justifyContent: 'space-between', fontFamily: FONT, fontSize: 28, fontWeight: 800, color: '#fff'}}>
         <span>{props.handle}</span>
         <span>{props.callToAction}</span>

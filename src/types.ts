@@ -13,8 +13,10 @@ export const videoSchema = z.object({
   narration: z.string(),
   scenes: z.array(sceneSchema).min(1),
   voiceover: z.string().optional(),
+  voiceVolume: z.number().min(0).max(1).default(1),
   music: z.string().optional(),
-  handle: z.string().default('@tu_canal'),
+  musicVolume: z.number().min(0).max(1).default(0.08),
+  handle: z.string().default('@AInsider'),
   callToAction: z.string().default('Sígueme para más'),
 });
 

@@ -1,38 +1,40 @@
 {
-  "headline": "Tres errores al usar inteligencia artificial",
-  "narration": "Si utilizas inteligencia artificial, evita estos tres errores. Primero, pedir resultados sin aportar contexto. La IA no puede adivinar tu objetivo. Segundo, aceptar la primera respuesta. Pide alternativas y compara. Tercero, automatizar antes de validar el proceso. Primero comprueba que funciona y después escálalo.",
-  "handle": "@tu_canal",
-  "callToAction": "Guárdalo para después",
+  "headline": "Tres errores que hacen inútil a la inteligencia artificial",
+  "narration": "La inteligencia artificial no te está haciendo más rápido si cometes estos tres errores. Uno: pedir algo sin explicar el objetivo, el público y el formato. Dos: aceptar la primera respuesta. Pide tres alternativas y compara. Tres: automatizar un proceso que todavía no funciona. Primero valida el resultado, luego conviértelo en sistema. Contexto, alternativas y validación. Esa es la diferencia entre jugar con inteligencia artificial y usarla de verdad.",
+  "handle": "@AInsider",
+  "callToAction": "Síguenos · IA sin humo",
   "voiceover": "audio/voice.mp3",
+  "voiceVolume": 1,
+  "musicVolume": 0.08,
   "scenes": [
     {
-      "title": "¿USAS MAL LA IA?",
-      "body": "Estos tres errores están empeorando tus resultados.",
-      "durationSeconds": 5,
+      "title": "LA IA NO TE HACE MÁS RÁPIDO",
+      "body": "Si cometes estos tres errores, sólo produces más ruido.",
+      "durationSeconds": 5.5,
       "accent": "#B7FF3C"
     },
     {
       "title": "ERROR 1",
-      "body": "Pedir resultados sin explicar el contexto ni el objetivo.",
-      "durationSeconds": 7,
+      "body": "Pedir algo sin explicar objetivo, público ni formato.",
+      "durationSeconds": 6,
       "accent": "#54E6FF"
     },
     {
       "title": "ERROR 2",
-      "body": "Aceptar la primera respuesta sin pedir alternativas ni comparar.",
-      "durationSeconds": 7,
+      "body": "Aceptar la primera respuesta. Pide tres alternativas y compara.",
+      "durationSeconds": 6,
       "accent": "#FFCC45"
     },
     {
       "title": "ERROR 3",
-      "body": "Automatizar un proceso antes de comprobar que realmente funciona.",
-      "durationSeconds": 7,
+      "body": "Automatizar antes de validar que el proceso realmente funciona.",
+      "durationSeconds": 6,
       "accent": "#FF5D8F"
     },
     {
-      "title": "HAZLO AL REVÉS",
-      "body": "Aporta contexto, compara y valida antes de automatizar.",
-      "durationSeconds": 4,
+      "title": "LA FÓRMULA AINSIDER",
+      "body": "Contexto. Alternativas. Validación. Después, automatiza.",
+      "durationSeconds": 6,
       "accent": "#B7FF3C"
     }
   ]

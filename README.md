@@ -3,6 +3,8 @@
 Generador local de vídeos verticales para TikTok, Instagram Reels y YouTube Shorts.
 Codex puede investigar tendencias, crear las ideas y escribir un archivo JSON; Remotion convierte ese archivo en un MP4.
 
+Canal configurado: **AInsider** (`@AInsider`).
+
 ## Qué incluye
 
 - Formato vertical 1080 × 1920 a 30 FPS.
@@ -49,6 +51,13 @@ Guarda imágenes en `public/images` y música en `public/music`. En una escena u
 
 ```json
 "music": "music/cancion.mp3"
+```
+
+El volumen se configura de `0` a `1`:
+
+```json
+"voiceVolume": 1,
+"musicVolume": 0.08
 ```
 
 Utiliza únicamente material propio o con licencia adecuada para redes sociales.
